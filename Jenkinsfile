@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('Build') {
             steps{
-                aws ecr get-login --no-include-email --region us-east-1 | bash
+		aws ecr get-login --no-include-email --region us-east-1 | bash
 
 		docker build --tag 415734504350.dkr.ecr.us-east-1.amazonaws.com/project-build:$(git rev-parse HEAD) -f Dockerfile.builder .
 
